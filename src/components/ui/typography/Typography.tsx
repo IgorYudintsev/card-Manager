@@ -37,6 +37,7 @@ export const Typography = <T extends ElementType= 'p'>(props: Props<T>) => {
     );
 };
 
+
 //----------------------------------------------------------------------------
 // import {ComponentPropsWithoutRef, ReactNode} from "react";
 // import s from "./Typography.module.scss";
