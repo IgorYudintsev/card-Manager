@@ -1,73 +1,100 @@
-.typography {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-m);
-  color: var(--color-dark-900);
+
+@mixin typography($fontSize, $fontWeight, $lineHeight,$color) {
+  //margin: 0;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: $color;
 }
 
 .large {
-  font-size: var(--font-size-xxl);
-  line-height: var(--line-height-l);
+  @include typography(var(--font-size-xxl), var(--font-weight-bold), var(--line-height-l), var(--color-text-primary));
 }
-
 .h1 {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-l);
+  @include typography(var(--font-size-xl), var(--font-weight-bold), var(--line-height-l), var(--color-text-primary));
 }
-
 .h2 {
-  font-size: var(--font-size-l);
+  @include typography(var(--font-size-l), var(--font-weight-bold), var(--line-height-m), var(--color-text-primary));
 }
-
 .h3 {
-  font-size: var(--font-size-m);
+  @include typography(var(--font-size-m), var(--font-weight-bold), var(--line-height-m), var(--color-text-primary));
 }
 
 .body1 {
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-regular);
+  @include typography(var(--font-size-m), var(--font-weight-regular), var(--line-height-m), var(--color-text-primary));
 }
-
-.subtitle1 {
-  font-size: var(--font-size-m);
-}
-
 .body2 {
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-regular);
+  @include typography(var(--font-size-m), var(--font-weight-regular), var(--font-size-s), var(--color-text-primary));
 }
-
+.subtitle1 {
+  @include typography(var(--font-size-m), var(--font-weight-bold), var(--line-height-m), var(--color-text-primary));
+}
 .subtitle2 {
-  font-size: var(--font-size-s);
+  @include typography(var(--font-size-s), var(--font-weight-bold), var(--line-height-m), var(--color-text-primary));
 }
-
 .caption {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--font-size-m);
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s), var(--color-text-primary));
 }
-
 .overline {
-  font-size: var(--font-size-xs);
-  line-height: var(--font-size-m);
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s), var(--color-text-primary));
 }
 
 .link1 {
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-info-500);
-  text-decoration: underline;
+  @include typography(var(--font-size-s), var(--font-weight-regular), var(--line-height-m), var(--color-text-link));
+  //text-decoration-line: none;
 }
 
 .link2 {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--font-size-m);
-  color: var(--color-info-500);
-  text-decoration: underline;
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s), var(--color-text-link));
+  //text-decoration-line: none;
 }
 
-.error {
-  font-size: var(--font-size-xs);
-  line-height: var(--font-size-m);
-  color: var(--color-danger-500);
+.error{
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s), var(--color-danger-300));
 }
+
+
+
+
+//----------------------------------------------------------------------------
+
+//.body2 {
+//  font-size: var(--font-size-s);
+//  font-weight: var(--font-weight-regular);
+//}
+//
+//.subtitle2 {
+//  font-size: var(--font-size-s);
+//}
+//
+//.caption {
+//  font-size: var(--font-size-xs);
+//  font-weight: var(--font-weight-regular);
+//  line-height: var(--font-size-m);
+//}
+//
+//.overline {
+//  font-size: var(--font-size-xs);
+//  line-height: var(--font-size-m);
+//}
+//
+//.link1 {
+//  font-size: var(--font-size-s);
+//  font-weight: var(--font-weight-regular);
+//  color: var(--color-info-500);
+//  text-decoration: underline;
+//}
+//
+//.link2 {
+//  font-size: var(--font-size-xs);
+//  font-weight: var(--font-weight-regular);
+//  line-height: var(--font-size-m);
+//  color: var(--color-info-500);
+//  text-decoration: underline;
+//}
+//
+//.error {
+//  font-size: var(--font-size-xs);
+//  line-height: var(--font-size-m);
+//  color: var(--color-danger-500);
+//}

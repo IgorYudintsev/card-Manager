@@ -1,5 +1,6 @@
 import {ComponentPropsWithoutRef, ElementType, ReactNode} from "react";
 import s from "./Typography.module.scss";
+import clsx from 'clsx'
 
 type Props<T extends ElementType='p'> = {
     variant: | 'body1'
@@ -26,12 +27,13 @@ export const Typography = <T extends ElementType= 'p'>(props: Props<T>) => {
         variant,
         className,
         ...rest}=props
+
+    const classNames = {
+              root: clsx(s[variant],className),
+    }
     return (
         <Component
-            className={`
-            ${s[variant]}
-            ${className}
-            `}
+            className={classNames.root}
             {...rest}
         />
     );
