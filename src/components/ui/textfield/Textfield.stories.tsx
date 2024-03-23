@@ -61,8 +61,8 @@ export const PasswordDisabled: Story = {
     args: {
         disabled: true,
         placeholder: 'Password Disabled',
-        variant: 'text',
-    },
+        variant: 'password',
+      },
 }
 export const SearchInput: Story = {
     args: {

@@ -1,10 +1,11 @@
-import { HTMLAttributes } from 'react'
+import {HTMLAttributes} from 'react'
 
 type SvgWithColor = {
     className?: string
 } & HTMLAttributes<SVGElement>
 
-export const EyeOutline = ({ className, ...props }: SvgWithColor) => {
+export const EyeOutline = ({className, ...props}: SvgWithColor) => {
+    console.log({...props})
     return (
         <svg
             className={className}
@@ -33,7 +34,7 @@ export const EyeOutline = ({ className, ...props }: SvgWithColor) => {
             </g>
             <defs>
                 <clipPath id={'clip0_5661_1730'}>
-                    <rect fill={'white'} height={'24'} width={'24'} />
+                    <rect fill={'white'} height={'24'} width={'24'}/>
                 </clipPath>
             </defs>
         </svg>

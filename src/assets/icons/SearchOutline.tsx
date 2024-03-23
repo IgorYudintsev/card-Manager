@@ -32,3 +32,6 @@ export const SearchOutline = ({ className, ...props }: SvgWithColor) => {
         </svg>
     )
 }
+
+
+
