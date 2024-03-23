@@ -17,7 +17,7 @@ export const Textfield = (props: TextFieldProps) => {
     const {className, disabled = false, error = false, variant = 'text'} = props
     const [passwordVisibility, setPasswordVisibility] = useState(false)
     const searchVariant = variant === 'search'
-    const passwordVariant = variant === 'password'
+    //const passwordVariant = variant === 'password'
     const changePasswordVision = () => {
         setPasswordVisibility(!passwordVisibility)
     }
