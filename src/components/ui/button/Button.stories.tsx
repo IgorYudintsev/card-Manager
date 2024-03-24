@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Button } from './'
-import {LogoutSvg} from "@/assets/icons/LogoutSvg";
+
 
 const meta = {
     title: 'Components/Button',
@@ -12,89 +11,163 @@ const meta = {
             options: ['primary', 'secondary', 'tertiary', 'link'],
             control: { type: 'radio' },
         },
+        fullWidth: {
+            control: { type: 'radio' },
+            options: [true, false],
+        },
+        icon: {
+            control: { type: 'radio' },
+            options: [true, false],
+        },
     },
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-
-
 export const Primary: Story = {
     args: {
-        variant: 'primary',
         children: 'Primary Button',
         disabled: false,
+        variant: 'primary',
+    },
+}
+
+export const PrimaryWithIcon: Story = {
+    args: {
+        children: 'Primary Button With Icon',
+        disabled: false,
+        icon: true,
+        variant: 'primary',
     },
 }
 
 export const Secondary: Story = {
     args: {
-        variant: 'secondary',
         children: 'Secondary Button',
         disabled: false,
+        variant: 'secondary',
     },
 }
+
+export const SecondaryWithIcon: Story = {
+    args: {
+        children: 'Secondary Button With Icon',
+        disabled: false,
+        icon: true,
+        variant: 'secondary',
+    },
+}
+
 export const Tertiary: Story = {
     args: {
-        variant: 'tertiary',
         children: 'Tertiary Button',
         disabled: false,
+        variant: 'tertiary',
     },
 }
 export const Link: Story = {
     args: {
-        variant: 'link',
-        children: 'Link Tertiary Button',
+        children: 'Tertiary Button',
         disabled: false,
+        variant: 'link',
     },
 }
 
 export const FullWidth: Story = {
     args: {
-        variant: 'primary',
         children: 'Full Width Button',
         disabled: false,
         fullWidth: true,
+        variant: 'primary',
     },
 }
 
 export const AsLink: Story = {
     args: {
-        variant: 'primary',
+        as: 'a',
         children: 'Link that looks like a button',
-        as: 'a',
-        href: 'https://www.google.com',
-    },
-}
-
-export const WithSvgIconPrimary: Story = {
-    args: {
         variant: 'primary',
-        children: (
-            <>
-                <LogoutSvg />
-                {'ClickHere'}
-            </>
-        ),
-        as: 'a',
-        href: 'https://www.google.com',
     },
 }
 
-export const WithSvgIconSecondary: Story = {
-    args: {
-        variant: 'secondary',
-        children: (
-            <>
-                <LogoutSvg />
-                {'ClickHere'}
-            </>
-        ),
-        as: 'a',
-        href: 'https://www.google.com',
-    },
-}
+
+//----------------------------------------------------------------------
+// export const Primary: Story = {
+//     args: {
+//         variant: 'primary',
+//         children: 'Primary Button',
+//         disabled: false,
+//     },
+// }
+//
+// export const Secondary: Story = {
+//     args: {
+//         variant: 'secondary',
+//         children: 'Secondary Button',
+//         disabled: false,
+//     },
+// }
+// export const Tertiary: Story = {
+//     args: {
+//         variant: 'tertiary',
+//         children: 'Tertiary Button',
+//         disabled: false,
+//     },
+// }
+// export const Link: Story = {
+//     args: {
+//         variant: 'link',
+//         children: 'Link Tertiary Button',
+//         disabled: false,
+//     },
+// }
+//
+// export const FullWidth: Story = {
+//     args: {
+//         variant: 'primary',
+//         children: 'Full Width Button',
+//         disabled: false,
+//         fullWidth: true,
+//     },
+// }
+//
+// export const AsLink: Story = {
+//     args: {
+//         variant: 'primary',
+//         children: 'Link that looks like a button',
+//         as: 'a',
+//         href: 'https://www.google.com',
+//     },
+// }
+//
+// export const WithSvgIconPrimary: Story = {
+//     args: {
+//         variant: 'primary',
+//         children: (
+//             <>
+//                 <LogoutSvg />
+//                 {'ClickHere'}
+//             </>
+//         ),
+//         as: 'a',
+//         href: 'https://www.google.com',
+//     },
+// }
+//
+// export const WithSvgIconSecondary: Story = {
+//     args: {
+//         variant: 'secondary',
+//         children: (
+//             <>
+//                 <LogoutSvg />
+//                 {'ClickHere'}
+//             </>
+//         ),
+//         as: 'a',
+//         href: 'https://www.google.com',
+//     },
+// }
 
 //-------------------------------------------------------------------------------------
 

@@ -1,34 +1,40 @@
 import {ComponentPropsWithoutRef, ElementType, ReactNode} from "react";
 import s from './Button.module.scss'
 import clsx from 'clsx'
+import {Logout} from '@/assets/icons/Logout'
 
-type Props<T extends ElementType='button'> = {
+type Props<T extends ElementType = 'button'> = {
     as?: T
     children: ReactNode
-    variant?:'primary'| 'secondary'| 'tertiary'| 'link'
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
     fullWidth?: boolean
     className?: string
+    icon?: boolean
 } & ComponentPropsWithoutRef<T>
 
 
-export const Button = <T extends ElementType= 'button'>(props:Props<T>) => {
-    const{
+export const Button = <T extends ElementType = 'button'>(props: Props<T>) => {
+    const {
         as: Component = 'button',
         className,
         fullWidth,
         variant = 'primary',
+        icon,
         ...rest
-    }=props
+    } = props
 
     const classNames = {
-        root: clsx( s.button,s[variant], fullWidth ? s.fullWidth : '', className),
+        root: clsx(s.button, s[variant], fullWidth ? s.fullWidth : '', icon && s.wihIcon, className),
     }
 
     return (
-        <Component
-            className={classNames.root}
-            {...rest}
-        />
+        <div className={s.buttonWrapper}>
+            {icon && <Logout className={s.logout}/>}
+            <Component
+                className={classNames.root}
+                {...rest}
+            />
+        </div>
     )
 }
 //--------------------------------------------------------------
