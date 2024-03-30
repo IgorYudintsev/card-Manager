@@ -1,0 +1,216 @@
+button {
+  all: unset;
+}
+
+.selectWrapper {
+  margin: 10px;
+
+  & .selectLabel {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m);
+    color: var(--color-dark-100);
+  }
+
+  & .selectLabelDisabled {
+    color: var(--color-dark-300);
+  }
+}
+
+.selectTrigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 210px;
+  height: 35px;
+  padding: 6px 10px 6px 12px;
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  color: var(--color-light-100);
+  background-color: inherit;
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-dark-300);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-info-700);
+  }
+}
+
+.arrow {
+  fill: var(--color-light-100);
+}
+
+.selectTrigger[data-disabled] {
+  color: var(--color-dark-300);
+
+  & .arrow {
+    fill: var(--color-dark-300);
+  }
+
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+.selectTrigger[data-state='open'] {
+  border-color: var(--color-light-100);
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+}
+
+.selectIcon {
+  color: var(--color-light-100);
+}
+
+.selectContent {
+  overflow: hidden;
+  background-color: inherit;
+  border: 1px solid var(--color-light-100);
+  border-radius: 0 0 2px 2px;
+}
+
+.selectContent:hover {
+  cursor: pointer;
+}
+
+.selectViewport {
+  width: 208px;
+}
+
+.selectScrollButton {
+  cursor: default;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 25px;
+
+  color: var(--color-light-100);
+}
+
+.selectGroup {
+  width: 100%;
+  line-height: var(--line-height-m);
+  color: var(--color-light-100);
+}
+
+.selectItem[data-highlighted] {
+  color: var(--color-accent-300);
+  background-color: var(--color-accent-900);
+  outline: none;
+}
+
+.selectItem {
+  padding: 6px 0 6px 11px;
+}
+
+
+//-----------------------------------------------------------------------
+//@import '@radix-ui/colors/black-alpha.css';
+//@import '@radix-ui/colors/mauve.css';
+//@import '@radix-ui/colors/violet.css';
+//
+///* reset */
+//button {
+//  all: unset;
+//}
+//
+//.SelectTrigger {
+//  display: inline-flex;
+//  align-items: center;
+//  justify-content: center;
+//  border-radius: 4px;
+//  padding: 0 15px;
+//  font-size: 13px;
+//  line-height: 1;
+//  height: 35px;
+//  gap: 5px;
+//  background-color: white;
+//  color: var(--violet-11);
+//  box-shadow: 0 2px 10px var(--black-a7);
+//}
+//.SelectTrigger:hover {
+//  background-color: var(--mauve-3);
+//}
+//.SelectTrigger:focus {
+//  box-shadow: 0 0 0 2px black;
+//}
+//.SelectTrigger[data-placeholder] {
+//  color: var(--violet-9);
+//}
+//
+//.SelectIcon {
+//  color: Var(--violet-11);
+//}
+//
+//.SelectContent {
+//  overflow: hidden;
+//  background-color: #361a1a;
+//  border-radius: 6px;
+//  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+//}
+//
+//.SelectViewport {
+//  padding: 5px;
+//}
+//
+//.SelectItem {
+//  font-size: 13px;
+//  line-height: 1;
+//  color: var(--violet-11);
+//  border-radius: 3px;
+//  display: flex;
+//  align-items: center;
+//  height: 25px;
+//  padding: 0 35px 0 25px;
+//  position: relative;
+//  user-select: none;
+//}
+//.SelectItem[data-disabled] {
+//  color: var(--mauve-8);
+//  pointer-events: none;
+//}
+//.SelectItem[data-highlighted] {
+//  outline: none;
+//  background-color: var(--violet-9);
+//  color: var(--violet-1);
+//}
+//
+//.SelectLabel {
+//  padding: 0 25px;
+//  font-size: 12px;
+//  line-height: 25px;
+//  color: var(--mauve-11);
+//}
+//
+//.SelectSeparator {
+//  height: 1px;
+//  background-color: var(--violet-6);
+//  margin: 5px;
+//}
+//
+//.SelectItemIndicator {
+//  position: absolute;
+//  left: 0;
+//  width: 25px;
+//  display: inline-flex;
+//  align-items: center;
+//  justify-content: center;
+//}
+//
+//.SelectScrollButton {
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  height: 25px;
+//  background-color: white;
+//  color: var(--violet-11);
+//  cursor: default;
+//}
