@@ -1,7 +1,6 @@
 import { useState } from 'react'
-
-import { ArrowDown } from '@/assets/icons/ArrowDown'
-import { ArrowUp } from '@/assets/icons/ArrowUp'
+import { ArrowDown } from '@/assets'
+import { ArrowUp } from '@/assets'
 import * as SelectRadix from '@radix-ui/react-select'
 import s from './Select.module.scss'
 import {SelectItem} from "@/components/ui/select/selectItem/SelectItem";
@@ -29,6 +28,7 @@ export const Select = ({
         content:clsx(s.selectContent),
        viewport:clsx(s.selectViewport),
         group:clsx(s.selectGroup),
+        selectItem:clsx(s.selectGroup)
     }
 
     const [state, setState] = useState(false)
@@ -53,7 +53,7 @@ export const Select = ({
                         <SelectRadix.Viewport className={classNames.viewport}>
                             <SelectRadix.Group className={classNames.group}>
                                 {options.map((el, index) => (
-                                    <SelectItem key={index} value={el} />
+                                    <SelectItem className={classNames.selectItem} key={index} value={el} />
                                 ))}
                             </SelectRadix.Group>
                         </SelectRadix.Viewport>

@@ -18,19 +18,27 @@ button {
 
 .selectTrigger {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   box-sizing: border-box;
   width: 210px;
   height: 35px;
   padding: 6px 10px 6px 12px;
+
   font-size: var(--font-size-m);
   line-height: var(--line-height-m);
   color: var(--color-light-100);
+
   background-color: inherit;
   border: 1px solid var(--color-dark-300);
   border-radius: 2px;
+
+  & .arrow {
+    fill: var(--color-light-100);
+  }
 
   &:hover {
     cursor: pointer;
@@ -40,32 +48,24 @@ button {
   &:focus {
     outline: 2px solid var(--color-info-700);
   }
-}
 
-.arrow {
-  fill: var(--color-light-100);
-}
+  &[data-disabled] {
+    color: var(--color-dark-300);
 
-.selectTrigger[data-disabled] {
-  color: var(--color-dark-300);
+    & .arrow {
+      fill: var(--color-dark-300);
+    }
 
-  & .arrow {
-    fill: var(--color-dark-300);
+    &:hover {
+      background-color: inherit;
+    }
   }
 
-  &:hover {
-    background-color: inherit;
+  &[data-state='open'] {
+    border-color: var(--color-light-100);
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
   }
-}
-
-.selectTrigger[data-state='open'] {
-  border-color: var(--color-light-100);
-  border-bottom: none;
-  border-radius: 2px 2px 0 0;
-}
-
-.selectIcon {
-  color: var(--color-light-100);
 }
 
 .selectContent {
@@ -73,38 +73,26 @@ button {
   background-color: inherit;
   border: 1px solid var(--color-light-100);
   border-radius: 0 0 2px 2px;
-}
 
-.selectContent:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .selectViewport {
   width: 208px;
 }
 
-.selectScrollButton {
-  cursor: default;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 25px;
-
-  color: var(--color-light-100);
-}
-
 .selectGroup {
   width: 100%;
   line-height: var(--line-height-m);
   color: var(--color-light-100);
-}
 
-.selectItem[data-highlighted] {
-  color: var(--color-accent-300);
-  background-color: var(--color-accent-900);
-  outline: none;
+  & [data-highlighted] {
+    color: var(--color-accent-300);
+    background-color: var(--color-accent-900);
+    outline: none;
+  }
 }
 
 .selectItem {

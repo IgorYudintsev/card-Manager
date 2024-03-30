@@ -1,4 +1,4 @@
-import { Check } from '@/assets/icons/Check'
+import { Check } from '@/assets'
 import { Typography } from '@/components/ui/typography'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import s from './CheckBox.module.scss'

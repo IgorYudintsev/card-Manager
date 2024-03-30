@@ -1,7 +1,7 @@
 import {ComponentPropsWithoutRef, ElementType, ReactNode} from "react";
 import s from './Button.module.scss'
 import clsx from 'clsx'
-import {Logout} from '@/assets/icons/Logout'
+import {Logout} from '@/assets'
 
 type Props<T extends ElementType = 'button'> = {
     as?: T
