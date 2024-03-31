@@ -6,4 +6,11 @@ export * from './icons/Logout'
 export * from './icons/Logo'
 export * from './icons/ArrowDown'
 export * from './icons/ArrowUp'
+export * from './icons/Delete'
+export * from './icons/Edit'
+export * from './icons/Play'
+export * from './icons/SignOut'
+export * from './icons/User'
+
+
 export * from './image/defaultAvatar.png'

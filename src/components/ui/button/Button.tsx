@@ -5,7 +5,7 @@ import {Logout} from '@/assets'
 
 type Props<T extends ElementType = 'button'> = {
     as?: T
-    children: ReactNode
+    children?: ReactNode
     variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
     fullWidth?: boolean
     className?: string
