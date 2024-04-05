@@ -5,6 +5,7 @@ import * as SelectRadix from '@radix-ui/react-select'
 import s from './Select.module.scss'
 import {SelectItem} from "@/components/ui/select/selectItem/SelectItem";
 import clsx from "clsx";
+import {Typography} from "@/components/ui/typography";
 
 type Props = {
     defaultOpen?: boolean
@@ -35,7 +36,13 @@ export const Select = ({
 
     return (
         <div className={classNames.wrapper}>
-            <div className={classNames.label}>{label}</div>
+            {/*<div className={classNames.label}>{label}</div>*/}
+            <Typography
+                className={classNames.label}
+                variant={'body2'}
+            >
+                {label}
+            </Typography>
             <SelectRadix.Root disabled={disabled} onOpenChange={open => setState(open)} {...props}>
                 <SelectRadix.Trigger className={classNames.trigger}>
                     <SelectRadix.Value placeholder={options[0]} />

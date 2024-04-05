@@ -8,8 +8,8 @@ type ItemProps = {
 export const SelectItem = React.forwardRef<HTMLDivElement, ItemProps>(
     ({ ...props }, forwardedRef) => {
         return (
-            <SelectRadix.Item {...props} ref={forwardedRef}>
-                <SelectRadix.ItemText>{props.value}</SelectRadix.ItemText>
+            <SelectRadix.Item  {...props} ref={forwardedRef}>
+                <SelectRadix.ItemText >{props.value}</SelectRadix.ItemText>
             </SelectRadix.Item>
         )
     }
