@@ -11,8 +11,17 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const RadioGroupDefault: Story = {
+const radioGroupOptions = ['Check1', 'Check2', 'Check3', 'Check4']
+
+export const RadioDefault: Story = {
     args: {
-        options: ['first', 'second', 'third'],
+        options: radioGroupOptions,
+    },
+}
+
+export const RadioDisabled: Story = {
+    args: {
+        disabled: true,
+        options: radioGroupOptions,
     },
 }
