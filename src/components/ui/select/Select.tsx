@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {ComponentPropsWithoutRef, useState} from 'react'
 import { ArrowDown } from '@/assets'
 import { ArrowUp } from '@/assets'
 import * as SelectRadix from '@radix-ui/react-select'
@@ -12,7 +12,7 @@ type Props = {
     disabled?: boolean
     label?: string
     options: string[]
-}
+}& ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 export const Select = ({
                            disabled = false,

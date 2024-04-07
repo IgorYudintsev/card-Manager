@@ -4,10 +4,14 @@
 
 .button {
   all: unset;
+
   cursor: pointer;
+
   padding: 6px 28px;
+
   font-size: 14px;
   font-weight: 700;
+
   border-radius: 4px;
 
   &:focus-visible {
@@ -93,13 +97,15 @@
 
 .fullWidth {
   width: 100%;
-  text-align: center;
 }
 
 .logout {
+  pointer-events: none;
+
   position: absolute;
   top: 5px;
   left: 20px;
+
   fill: var(--color-light-100);
 }
 
