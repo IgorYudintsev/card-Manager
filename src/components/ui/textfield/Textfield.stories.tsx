@@ -26,54 +26,63 @@ type Story = StoryObj<typeof meta>
 
 export const PrimaryInput: Story = {
     args: {
-        //placeholder: 'Primary input',
+        label: 'Primary input',
+        placeholder: 'Primary input',
         variant: 'text',
     },
 }
 export const PrimaryError: Story = {
     args: {
         error: true,
-        //placeholder: 'Primary Error ',
+        errorMessage: 'Primary Error',
+        label: 'Primary Error',
         variant: 'text',
     },
 }
 export const PrimaryDisabled: Story = {
     args: {
         disabled: true,
-       // placeholder: 'Primary Disabled',
+        label: 'Primary Disabled',
+        placeholder: 'Primary Disabled',
         variant: 'text',
     },
 }
 export const PasswordInput: Story = {
     args: {
-       // placeholder: 'Password Input',
+        label: 'Password Input',
+        placeholder: 'Password Input',
         variant: 'password',
     },
 }
 export const PasswordError: Story = {
     args: {
         error: true,
-       // placeholder: 'Password Error',
+        errorMessage: 'Wrong password',
+        label: 'Password Error',
+        placeholder: 'Password Error',
         variant: 'password',
     },
 }
 export const PasswordDisabled: Story = {
     args: {
         disabled: true,
-       // placeholder: 'Password Disabled',
+        label: 'Password Disabled',
+        placeholder: 'Password Disabled',
         variant: 'password',
       },
 }
 export const SearchInput: Story = {
     args: {
-       // placeholder: 'Search Input',
+        label: 'Search Input',
+        placeholder: 'Search Input',
         variant: 'search',
     },
 }
 export const SearchError: Story = {
     args: {
         error: true,
-       // placeholder: 'Search Error',
+        label: 'Search Error',
+       placeholder: 'Search Error',
         variant: 'search',
     },
 }

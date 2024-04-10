@@ -2,19 +2,29 @@ import {EyeOffOutline} from '@/assets'
 import {EyeOutline} from '@/assets'
 import {SearchOutline} from '@/assets'
 import {Typography} from '@/components/ui/typography'
-import {useState} from "react";
+import {ComponentPropsWithoutRef, ElementType, useState} from "react";
 import s from "./Textfield.module.scss";
 import clsx from "clsx";
 
-export type TextFieldProps = {
+export type TextFieldProps<T extends ElementType = 'input'> = {
     className?: string
     disabled?: boolean
     error?: boolean
     variant?: 'password' | 'search' | 'text'
-}
+    errorMessage?: string
+    label?: string
+} & ComponentPropsWithoutRef<T>
 
 export const Textfield = (props: TextFieldProps) => {
-    const {className, disabled = false, error = false, variant = 'text'} = props
+    const {
+        className,
+        disabled = false,
+        error = false,
+        variant = 'text',
+        errorMessage = 'Error!',
+        label = 'Input',
+        ...rest
+    } = props
     const [passwordVisibility, setPasswordVisibility] = useState(false)
     const searchVariant = variant === 'search'
     //const passwordVariant = variant === 'password'
@@ -23,9 +33,9 @@ export const Textfield = (props: TextFieldProps) => {
     }
     const placeholderValidator = () => {
         if (searchVariant) {
-            return 'Input search'
+            return errorMessage || 'Input search'
         } else if (error) {
-            return 'Error'
+            return errorMessage || 'Error'
         } else {
             return 'Input'
         }
@@ -50,7 +60,7 @@ export const Textfield = (props: TextFieldProps) => {
                     className={classNames.typography}
                     variant={'body2'}
                 >
-                    Input
+                    {label}
                 </Typography>
             )}
             <div className={classNames.inputVariant}>
@@ -60,6 +70,7 @@ export const Textfield = (props: TextFieldProps) => {
                     name={'textField'}
                     placeholder={placeholderValidator()}
                     type={passwordVisibility ? 'text' : variant}
+                    {...rest}
                 />
                 {variant === 'password' &&
                     <div>
@@ -86,7 +97,9 @@ export const Textfield = (props: TextFieldProps) => {
                 </div>
             </div>
             {error && (
-                <Typography className={classNames.errorMessage} variant={'error'}>Error!</Typography>
+                <Typography className={classNames.errorMessage} variant={'error'}>
+                    {errorMessage}
+                </Typography>
             )}
         </div>
 

@@ -8,6 +8,8 @@ import clsx from "clsx";
 import {Typography} from "@/components/ui/typography";
 
 type Props = {
+    className?: string
+    classNameItem?: string
     defaultOpen?: boolean
     disabled?: boolean
     label?: string
@@ -15,8 +17,10 @@ type Props = {
 }& ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 export const Select = ({
+                           className,
+                           classNameItem,
                            disabled = false,
-                           label = 'Select box',
+                           label,
                            options = [],
                            ...props
                        }: Props) => {
