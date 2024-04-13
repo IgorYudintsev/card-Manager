@@ -3,11 +3,10 @@ button {
 }
 
 .selectWrapper {
-  margin: 2px;
+  margin: 10px;
 
   & .selectLabel {
-    font-size: var(--font-size-s);
-    line-height: var(--line-height-m);
+    font-weight: 400;
     color: var(--color-dark-100);
   }
 
@@ -24,8 +23,8 @@ button {
   justify-content: space-between;
 
   box-sizing: border-box;
-  width: 280px;
-  height: 33px;
+  width: 100%;
+  height: 35px;
   padding: 6px 10px 6px 12px;
 
   font-size: var(--font-size-m);
@@ -37,6 +36,7 @@ button {
   border-radius: 2px;
 
   & .arrow {
+    transform-origin: center;
     fill: var(--color-light-100);
   }
 
@@ -61,18 +61,30 @@ button {
     }
   }
 
+  &[data-state='closed'] .arrow {
+    transition: all 0.3s ease-in-out;
+  }
+
   &[data-state='open'] {
+    position: relative;
     border-color: var(--color-light-100);
     border-bottom: none;
     border-radius: 2px 2px 0 0;
+
+    & .arrow {
+      transform: rotate(90deg);
+      transition: all 0.3s ease-in-out;
+    }
   }
 }
 
 .selectContent {
   overflow: hidden;
-  //background-color: inherit;
-  width: 280px;
-  background-color: var(--color-dark-700);
+
+  box-sizing: border-box;
+  width: var(--radix-select-trigger-width);
+
+  background-color: inherit;
   border: 1px solid var(--color-light-100);
   border-radius: 0 0 2px 2px;
 
@@ -81,28 +93,148 @@ button {
   }
 }
 
-.selectViewport {
-  width: 280px;
-  //width: 208px;
-}
-
 .selectGroup {
-  width: 100%;
   line-height: var(--line-height-m);
   color: var(--color-light-100);
-  padding-left: 5px;
-  padding-right: 5px;
 
   & [data-highlighted] {
     color: var(--color-accent-300);
     background-color: var(--color-accent-900);
     outline: none;
   }
+
+  & [data-state='checked'] {
+    color: var(--color-accent-300);
+  }
 }
 
 .selectItem {
-  padding: 6px 0 6px 11px;
+  padding: 6px 27px 6px 11px;
 }
+
+.paginationSelect {
+  width: 50px;
+  height: 24px;
+  padding: 0 2px 0 6px;
+
+  font-size: 14px;
+
+  background-color: var(--color-dark-700);
+}
+
+.paginationSelectItem {
+  & .selectItem {
+    padding: 0 6px;
+    font-size: 14px;
+  }
+}
+
+//----------------------------------------------------------
+//button {
+//  all: unset;
+//}
+//
+//.selectWrapper {
+//  margin: 2px;
+//
+//  & .selectLabel {
+//    font-size: var(--font-size-s);
+//    line-height: var(--line-height-m);
+//    color: var(--color-dark-100);
+//  }
+//
+//  & .selectLabelDisabled {
+//    color: var(--color-dark-300);
+//  }
+//}
+//
+//.selectTrigger {
+//  position: relative;
+//
+//  display: flex;
+//  align-items: center;
+//  justify-content: space-between;
+//
+//  box-sizing: border-box;
+//  width: 280px;
+//  height: 33px;
+//  padding: 6px 10px 6px 12px;
+//
+//  font-size: var(--font-size-m);
+//  line-height: var(--line-height-m);
+//  color: var(--color-light-100);
+//
+//  background-color: inherit;
+//  border: 1px solid var(--color-dark-300);
+//  border-radius: 2px;
+//
+//  & .arrow {
+//    fill: var(--color-light-100);
+//  }
+//
+//  &:hover {
+//    cursor: pointer;
+//    background-color: var(--color-dark-300);
+//  }
+//
+//  &:focus {
+//    outline: 2px solid var(--color-info-700);
+//  }
+//
+//  &[data-disabled] {
+//    color: var(--color-dark-300);
+//
+//    & .arrow {
+//      fill: var(--color-dark-300);
+//    }
+//
+//    &:hover {
+//      background-color: inherit;
+//    }
+//  }
+//
+//  &[data-state='open'] {
+//    border-color: var(--color-light-100);
+//    border-bottom: none;
+//    border-radius: 2px 2px 0 0;
+//  }
+//}
+//
+//.selectContent {
+//  overflow: hidden;
+//  //background-color: inherit;
+//  width: 280px;
+//  background-color: var(--color-dark-700);
+//  border: 1px solid var(--color-light-100);
+//  border-radius: 0 0 2px 2px;
+//
+//  &:hover {
+//    cursor: pointer;
+//  }
+//}
+//
+//.selectViewport {
+//  width: 280px;
+//  //width: 208px;
+//}
+//
+//.selectGroup {
+//  width: 100%;
+//  line-height: var(--line-height-m);
+//  color: var(--color-light-100);
+//  padding-left: 5px;
+//  padding-right: 5px;
+//
+//  & [data-highlighted] {
+//    color: var(--color-accent-300);
+//    background-color: var(--color-accent-900);
+//    outline: none;
+//  }
+//}
+//
+//.selectItem {
+//  padding: 6px 0 6px 11px;
+//}
 
 
 //-----------------------------------------------------------------------

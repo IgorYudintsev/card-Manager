@@ -12,5 +12,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const PaginationDefault: Story = {
-
+    args: {
+        pageSize: 10,
+        siblings: 10,
+        totalElements:200
+    },
 }
