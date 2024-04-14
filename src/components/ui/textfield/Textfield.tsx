@@ -7,9 +7,7 @@ import s from "./Textfield.module.scss";
 import clsx from "clsx";
 
 export type TextFieldProps<T extends ElementType = 'input'> = {
-    className?: string
     disabled?: boolean
-    error?: boolean
     variant?: 'password' | 'search' | 'text'
     errorMessage?: string
     label?: string
@@ -19,9 +17,8 @@ export const Textfield = (props: TextFieldProps) => {
     const {
         className,
         disabled = false,
-        error = false,
         variant = 'text',
-        errorMessage = 'Error!',
+        errorMessage = '',
         label = 'Input',
         ...rest
     } = props
@@ -31,24 +28,24 @@ export const Textfield = (props: TextFieldProps) => {
     const changePasswordVision = () => {
         setPasswordVisibility(!passwordVisibility)
     }
-    const placeholderValidator = () => {
-        if (searchVariant) {
-            return errorMessage || 'Input search'
-        } else if (error) {
-            return errorMessage || 'Error'
-        } else {
-            return 'Input'
-        }
-    }
+    // const placeholderValidator = () => {
+    //     if (searchVariant) {
+    //         return errorMessage || 'Input search'
+    //     } else if (error) {
+    //         return errorMessage || 'Error'
+    //     } else {
+    //         return 'Input'
+    //     }
+    // }
 
     const classNames = {
         container: clsx(s.textField_container),
         typography: clsx(s.textField_label, disabled && s.textField_label_disabled),
         inputVariant: clsx(s[variant]),
-        input: clsx(s.textField, error && s.textField_error, className),
+        input: clsx(s.textField, errorMessage && s.textField_error, className),
         eyeOffOutline: clsx(s.passwordEyeIcon, disabled && s.passwordEyeIcon_disabled),
         eyeOutline: clsx(s.passwordEyeIcon, disabled && s.passwordEyeIcon_disabled),
-        searchOutline: clsx(s.searchIcon, error && s.searchIcon_error),
+        searchOutline: clsx(s.searchIcon, errorMessage && s.searchIcon_error),
         errorMessage: clsx(s.errorMessage),
     }
 
@@ -68,7 +65,7 @@ export const Textfield = (props: TextFieldProps) => {
                     className={classNames.input}
                     disabled={disabled}
                     name={'textField'}
-                    placeholder={placeholderValidator()}
+                    // placeholder={placeholderValidator()}
                     type={passwordVisibility ? 'text' : variant}
                     {...rest}
                 />
@@ -96,7 +93,7 @@ export const Textfield = (props: TextFieldProps) => {
                     )}
                 </div>
             </div>
-            {error && (
+            {errorMessage && (
                 <Typography className={classNames.errorMessage} variant={'error'}>
                     {errorMessage}
                 </Typography>

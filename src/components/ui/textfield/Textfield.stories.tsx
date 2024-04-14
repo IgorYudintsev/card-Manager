@@ -1,18 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type {Meta, StoryObj} from '@storybook/react'
 import {Textfield} from '@/components/ui/textfield/Textfield'
 
 const meta = {
     argTypes: {
         disabled: {
-            control: { type: 'radio' },
-            options: [true, false],
-        },
-        error: {
-            control: { type: 'radio' },
+            control: {type: 'radio'},
             options: [true, false],
         },
         variant: {
-            control: { type: 'radio' },
+            control: {type: 'radio'},
             options: ['password', 'text', 'search'],
         },
     },
@@ -33,7 +29,7 @@ export const PrimaryInput: Story = {
 }
 export const PrimaryError: Story = {
     args: {
-        error: true,
+        placeholder: 'Primary input',
         errorMessage: 'Primary Error',
         label: 'Primary Error',
         variant: 'text',
@@ -56,7 +52,6 @@ export const PasswordInput: Story = {
 }
 export const PasswordError: Story = {
     args: {
-        error: true,
         errorMessage: 'Wrong password',
         label: 'Password Error',
         placeholder: 'Password Error',
@@ -69,10 +64,11 @@ export const PasswordDisabled: Story = {
         label: 'Password Disabled',
         placeholder: 'Password Disabled',
         variant: 'password',
-      },
+    },
 }
 export const SearchInput: Story = {
     args: {
+        errorMessage: 'Search error',
         label: 'Search Input',
         placeholder: 'Search Input',
         variant: 'search',
@@ -80,9 +76,8 @@ export const SearchInput: Story = {
 }
 export const SearchError: Story = {
     args: {
-        error: true,
         label: 'Search Error',
-       placeholder: 'Search Error',
+        placeholder: 'Search Error',
         variant: 'search',
     },
 }

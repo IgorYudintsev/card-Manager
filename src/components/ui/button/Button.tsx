@@ -8,7 +8,6 @@ type Props<T extends ElementType = 'button'> = {
     children?: ReactNode
     variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
     fullWidth?: boolean
-    className?: string
     icon?: boolean
 } & ComponentPropsWithoutRef<T>
 

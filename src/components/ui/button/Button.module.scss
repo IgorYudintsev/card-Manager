@@ -4,7 +4,6 @@
 
 .button {
   all: unset;
-
   cursor: pointer;
 
   padding: 6px 28px;
@@ -96,6 +95,8 @@
 }
 
 .fullWidth {
+  box-sizing: border-box;
+  text-align: center;
   width: 100%;
 }
 
