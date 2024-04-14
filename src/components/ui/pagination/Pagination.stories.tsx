@@ -11,10 +11,10 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const PaginationDefault: Story = {
-    args: {
-        pageSize: 10,
-        siblings: 10,
-        totalElements:200
-    },
+export const PaginationPrimary: Story = {
+    args: { siblingCount: 1, totalCount: 250 },
+}
+
+export const PaginationWithMoreSiblings: Story = {
+    args: { siblingCount: 3, totalCount: 250 },
 }

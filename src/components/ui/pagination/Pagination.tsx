@@ -1,23 +1,25 @@
 import {ArrowBack} from '@/assets/icons/ArrowBack'
-import { ArrowForward } from '@/assets/icons/ArrowForward'
 import { Dots } from '@/assets/icons/Dots'
 import { Select } from '@/components/ui/select'
 import { Typography } from '@/components/ui/typography'
-
 import s from './Pagination.module.scss'
+
+import { DOTS, usePagination } from './hooks/usePagination'
+import {SelectItem} from "@/components/ui/select/selectItem/SelectItem";
 import {useState} from "react";
-import {DOTS, usePagination} from "@/components/ui/pagination/hooks/usePagination";
 
 type Props = {
     className?: string
-    pageSize: number
-    selectOptions: string[]
     siblingCount?: number
     totalCount: number
 }
 
 export const Pagination = (props: Props) => {
-    const { className, pageSize, selectOptions, siblingCount, totalCount } = props
+    const { className, siblingCount, totalCount } = props
+    const [pageSize, setPageSize] = useState(10)
+    const onChangeValue = (value: string) => {
+        setPageSize(Number(value))
+    }
     const [currentPage, setCurrentPage] = useState(1)
     const paginationRange = usePagination({ currentPage, pageSize, siblingCount, totalCount })
 
@@ -56,20 +58,21 @@ export const Pagination = (props: Props) => {
                     </li>
                 )
             })}
-            <ArrowForward
-                className={`${s.arrow} ${currentPage === lastPage && s.disabled}`}
+            <ArrowBack
+                className={`${s.arrow} ${s.rotateArrow} ${currentPage === lastPage && s.disabled}`}
                 onClick={onNext}
             />
             <Typography as={'div'} className={s.selectWrapper} variant={'body2'}>
                 Показать
-                <Select
-                    className={s.paginationSelect}
-                    classNameItem={s.paginationSelectItem}
-                    options={selectOptions}
-                />
+                <Select defaultValue={'10'} onValueChange={onChangeValue} variant={'pagination'}>
+                    <SelectItem value={'10'}>10</SelectItem>
+                    <SelectItem value={'20'}>20</SelectItem>
+                    <SelectItem value={'30'}>30</SelectItem>
+                    <SelectItem value={'50'}>50</SelectItem>
+                    <SelectItem value={'100'}>100</SelectItem>
+                </Select>
                 на странице
             </Typography>
         </ul>
     )
 }
-
