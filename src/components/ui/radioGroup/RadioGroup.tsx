@@ -1,44 +1,69 @@
-import {ComponentPropsWithoutRef} from 'react'
-import * as RadixRadioGroup from '@radix-ui/react-radio-group'
+import {ComponentPropsWithoutRef, ElementRef, forwardRef} from 'react'
+import * as RadioGroupRadix from '@radix-ui/react-radio-group'
 import s from './RadioGroup.module.scss'
 import clsx from "clsx";
 
 type Props = {
     className?: string
-    defaultChecked?: boolean
-    disabled?: boolean
-    options: string[]
-} & ComponentPropsWithoutRef<typeof RadixRadioGroup.Root>
+} & ComponentPropsWithoutRef<typeof RadioGroupRadix.Root>
 
-export const RadioGroup = ({options = [], ...props}: Props) => {
-    const classNames = {
-        radioGroupRoot: clsx(s.radioGroupRoot),
-        radioGroupItem: clsx(s.radioGroupItem),
-        radioGroupIndicator: clsx(s.radioGroupIndicator),
-        label: clsx(s.label),
-    }
 
-    return (
-        <form>
-            <RadixRadioGroup.Root className={classNames.radioGroupRoot} {...props} defaultValue={options[0]}>
-                {options.map((option, index) => (
-                    <div className={s.radioButtonBlock} key={option + index}>
-                        <RadixRadioGroup.Item
-                            className={classNames.radioGroupItem}
-                            id={'radio-' + index}
-                            value={option}
-                        >
-                            <RadixRadioGroup.Indicator className={classNames.radioGroupIndicator}/>
-                        </RadixRadioGroup.Item>
-                        <label className={classNames.label} htmlFor={'radio-' + index}>
-                            {option}
-                        </label>
+
+export const RadioGroup = forwardRef<ElementRef<typeof RadioGroupRadix.Root>, Props>(
+    (props, ref) => {
+
+        const classNames = {
+            radioGroupRoot: clsx(s.radioGroupRoot),
+            radioButtonBlock: clsx(s.radioButtonBlock),
+            // radioGroupItem: clsx(s.radioGroupItem),
+            // radioGroupIndicator: clsx(s.radioGroupIndicator),
+            // label: clsx(s.label),
+        }
+        return (
+            <form className={s.formGroup}>
+                <RadioGroupRadix.Root className={classNames.radioGroupRoot} {...props}>
+                    <div className={classNames.radioButtonBlock} ref={ref}>
+                        {props.children}
                     </div>
-                ))}
-            </RadixRadioGroup.Root>
-        </form>
-    )
-}
+                </RadioGroupRadix.Root>
+            </form>
+        )
+    }
+)
+
+
+
+//--------------------------------------------------------------------------------------------------------------
+
+// export const RadioGroup = ({options = [], ...props}: Props) => {
+//     const classNames = {
+//         radioGroupRoot: clsx(s.radioGroupRoot),
+//         radioGroupItem: clsx(s.radioGroupItem),
+//         radioGroupIndicator: clsx(s.radioGroupIndicator),
+//         label: clsx(s.label),
+//     }
+//
+//     return (
+//         <form>
+//             <RadixRadioGroup.Root className={classNames.radioGroupRoot} {...props} defaultValue={options[0]}>
+//                 {options.map((option, index) => (
+//                     <div className={s.radioButtonBlock} key={option + index}>
+//                         <RadixRadioGroup.Item
+//                             className={classNames.radioGroupItem}
+//                             id={'radio-' + index}
+//                             value={option}
+//                         >
+//                             <RadixRadioGroup.Indicator className={classNames.radioGroupIndicator}/>
+//                         </RadixRadioGroup.Item>
+//                         <label className={classNames.label} htmlFor={'radio-' + index}>
+//                             {option}
+//                         </label>
+//                     </div>
+//                 ))}
+//             </RadixRadioGroup.Root>
+//         </form>
+//     )
+// }
 
 
 // //------------------------------------------------------------------------------
