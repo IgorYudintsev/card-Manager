@@ -1,11 +1,17 @@
-.root {
-  //min-width: 120px;
-  min-height: 152px;
-  //width: 420px;
-  //height: 552px;
-  background: var(--color-dark-500);
-  border-radius: 1px;
-  box-shadow:
-          -1px -1px 2px rgba(0, 0, 0, 0.1),
-          1px 1px 2px rgba(0, 0, 0, 0.1);
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 420px;
+  height: 552px;
+  padding: 33px 36px 25px;
+  background-color: var(--color-dark-700);
+
+  & .cardItems {
+    width: 100%;
+  }
 }

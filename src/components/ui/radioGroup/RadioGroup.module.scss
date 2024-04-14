@@ -35,6 +35,7 @@ button {
     &:hover {
       cursor: pointer;
       box-shadow: 0 0 0 6px var(--color-dark-500);
+      background-color: var(--color-dark-500);
     }
 
     &:focus {
@@ -42,6 +43,7 @@ button {
     }
 
     &:active {
+      background-color: var(--color-accent-900);
       box-shadow: 0 0 0 6px var(--color-accent-900);
     }
 
