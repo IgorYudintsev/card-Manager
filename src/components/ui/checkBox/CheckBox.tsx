@@ -3,16 +3,18 @@ import { Typography } from '@/components/ui/typography'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import s from './CheckBox.module.scss'
 import clsx from "clsx";
+import {forwardRef} from "react";
 
 export type CheckboxProps = {
+    onCheckedChange?: (value: boolean) => void
     checked?: boolean
     className?: string
     disabled?: boolean
-    text?: string
+    label?: string
 }
 
-export const CheckBox = (props: CheckboxProps) => {
-    const { checked = true, className, disabled = false, text, ...rest } = props
+export const CheckBox = forwardRef<HTMLInputElement,CheckboxProps>((props) => {
+    const { checked = true,onCheckedChange, className, disabled = false, label, ...rest } = props
     const classNames = {
         wrapper: clsx(s.Container, className),
         root: clsx(s.CheckboxRoot),
@@ -24,7 +26,8 @@ export const CheckBox = (props: CheckboxProps) => {
         <div className={classNames.wrapper} {...rest}>
             <CheckboxRadix.Root
                 className={classNames.root}
-                defaultChecked={checked}
+                checked={checked}
+                onCheckedChange={onCheckedChange}
                 disabled={disabled}
                 id={'c1'}
             >
@@ -32,16 +35,16 @@ export const CheckBox = (props: CheckboxProps) => {
                     <Check />
                 </CheckboxRadix.Indicator>
             </CheckboxRadix.Root>
-            {text && (
+            {label && (
                 <Typography
                     as={'label'}
                     className={classNames.typography}
                     htmlFor={'c1'}
                     variant={'body2'}
                 >
-                    {text}
+                    {label}
                 </Typography>
             )}
         </div>
     )
-}
+})
