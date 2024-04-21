@@ -5,8 +5,7 @@ type SvgWithColor = {
 } & HTMLAttributes<SVGElement>
 
 export const EyeOutline = ({className, ...props}: SvgWithColor) => {
-    console.log({...props})
-    return (
+     return (
         <svg
             className={className}
             fill={'none'}

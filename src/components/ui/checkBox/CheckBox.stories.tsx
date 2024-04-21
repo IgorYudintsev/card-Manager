@@ -29,7 +29,7 @@ export const WithLabel: Story = {
     args: {
         checked: false,
         disabled: false,
-        text: 'Accept terms and conditions.',
+        label: 'Accept terms and conditions.',
     },
 }
 
@@ -37,6 +37,6 @@ export const WithLabelChecked: Story = {
     args: {
         checked: true,
         disabled: false,
-        text: 'Accept terms and conditions.',
+        label: 'Accept terms and conditions.',
     },
 }

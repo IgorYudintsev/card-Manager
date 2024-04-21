@@ -1,9 +1,7 @@
-import {ComponentPropsWithoutRef, ElementRef, forwardRef, useState} from 'react'
+import {ComponentPropsWithoutRef, ElementRef, forwardRef} from 'react'
 import {ArrowDown} from '@/assets'
-import {ArrowUp} from '@/assets'
 import * as SelectRadix from '@radix-ui/react-select'
 import s from './Select.module.scss'
-import {SelectItem} from "@/components/ui/select/selectItem/SelectItem";
 import clsx from "clsx";
 import {Typography} from "@/components/ui/typography";
 
@@ -26,7 +24,7 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, Props>(
             ...restProps
         } = props
 
-        const [state, setState] = useState(false)
+        //const [state, setState] = useState(false)
 
         console.log(refSelect)
         const classNames = {

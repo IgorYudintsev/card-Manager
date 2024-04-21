@@ -1,12 +1,11 @@
 import {Button} from '@/components/ui/button'
-
 import {Select} from '@/components/ui/select'
-
 import {Typography} from '@/components/ui/typography'
 import {Meta, StoryObj} from '@storybook/react'
 import {Modal} from "@/components/ui/modal/Modal";
 import {Textfield} from "@/components/ui/textfield";
 import {CheckBox} from "@/components/ui/checkBox";
+import {SelectItem} from "@/components/ui/select/selectItem/SelectItem";
 
 const meta = {
     argTypes: {},
@@ -84,11 +83,15 @@ export const ModalWithContentWithChildrens: Story = {
         children: (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
                 <Select
-                    options={['value1', 'value2', 'value3']}
-                 // value={'value1'} захардкодили
-                />
+                    // value={'Select'}
+                >
+                    <SelectItem value={'value1'}>value1</SelectItem>
+                    <SelectItem value={'value2'}>value2</SelectItem>
+                    <SelectItem value={'value3'}>value3</SelectItem>
+
+                </Select>
                 <Textfield></Textfield>
-                <CheckBox checked={false} text={'Check me'} />
+                <CheckBox checked={false} label={'Check me'} />
                 <CheckBox checked />
                 <div
                     style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between' }}
@@ -110,11 +113,15 @@ export const ModalWithFullContent: Story = {
         children: (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
                 <Select
-                    options={['value1', 'value2', 'value3']}
-                    // value={'value1'} захардкодили
-                />
+                    // value={'Select'}
+                >
+                    <SelectItem value={'value1'}>value1</SelectItem>
+                    <SelectItem value={'value2'}>value2</SelectItem>
+                    <SelectItem value={'value3'}>value3</SelectItem>
+
+                </Select>
                 <Textfield />
-                <CheckBox checked={false} text={'Check me'} />
+                <CheckBox checked={false} label={'Check me'} />
                 <CheckBox checked />
                 <div
                     style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between' }}
