@@ -1,8 +1,6 @@
 import {useForm} from 'react-hook-form'
 import {Button} from '../../ui/button'
 import {zodResolver} from '@hookform/resolvers/zod'
-
-import {ControlledCheckbox} from "@/components/ui/controlled/controlled-checkbox/ControlledCheckbox";
 import {ControlledTextfield} from "@/components/ui/controlled/controlled-textfield/ControlledTextfield";
 import {Card} from "@/components/ui/card";
 import {Typography} from "@/components/ui/typography";
