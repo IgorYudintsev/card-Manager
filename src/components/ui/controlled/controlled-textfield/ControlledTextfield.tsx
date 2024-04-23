@@ -1,11 +1,11 @@
 import {useController, UseControllerProps} from "react-hook-form";
-import {FormValues} from "@/components/auth/login-form/utils";
+import {FormValues} from "../../../auth/signIn/utils";
 import {Textfield, TextFieldProps} from "@/components/ui/textfield";
 
 
 type Props = UseControllerProps<FormValues> &
     Omit<TextFieldProps, 'checked' | 'onValueChange'>
-export const ControlledTextfield = ({control, name, label, errorMessage,variant}: Props) => {
+export const ControlledTextfield = ({control, name, label, errorMessage,variant, ...rest}: Props) => {
     const {
         field: {onChange},
     } = useController({
@@ -19,6 +19,7 @@ export const ControlledTextfield = ({control, name, label, errorMessage,variant}
                    label={label}
                    errorMessage={errorMessage}
                    variant={variant}
+                   {...rest}
         />
     );
 };

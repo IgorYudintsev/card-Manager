@@ -30,10 +30,10 @@ export const Textfield = forwardRef<HTMLInputElement, TextFieldProps>((props, fo
 
 
     const classNames = {
-        container: clsx(s.textField_container),
+        container: clsx(s.textField_container,className),
         typography: clsx(s.textField_label, disabled && s.textField_label_disabled),
         inputVariant: clsx(s[variant]),
-        input: clsx(s.textField, errorMessage && s.textField_error, className),
+        input: clsx(s.textField, errorMessage && s.textField_error),
         eyeOffOutline: clsx(s.passwordEyeIcon, disabled && s.passwordEyeIcon_disabled),
         eyeOutline: clsx(s.passwordEyeIcon, disabled && s.passwordEyeIcon_disabled),
         searchOutline: clsx(s.searchIcon, errorMessage && s.searchIcon_error),
