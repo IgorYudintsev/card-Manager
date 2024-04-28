@@ -6,7 +6,7 @@ export const signUpSchema = z
     .object({
         confirmPassword: z.string().min(4),
         email: z.string().email(),
-        password: z.string().min(4),
+        password: z.string().min(3),
     })
     .superRefine(({ confirmPassword, password }, ctx) => {
         if (confirmPassword !== password) {

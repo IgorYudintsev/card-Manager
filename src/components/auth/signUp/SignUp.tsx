@@ -42,6 +42,14 @@ export const SignUp = () => {
                     name={'password'}
                     variant={'password'}
                 />
+                <ControlledTextfield
+                    className={s.passwordField}
+                    control={control}
+                    errorMessage={errors.confirmPassword?.message}
+                    label={'confirmPassword'}
+                    name={'confirmPassword'}
+                    variant={'password'}
+                />
 
                 <Typography className={s.forgotPassword} variant={'body2'}>
                     Forgot Password?
