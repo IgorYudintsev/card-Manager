@@ -3,6 +3,8 @@ import {Table, TableBody, TableDataCell, TableHead, TableHeadCell, TableRow} fro
 import defaultAvatar from '@/assets/image/defaultAvatar.png'
 import {PlayIcon} from "@radix-ui/react-icons";
 import {Delete, Edit} from "@/assets";
+import {useHandleSort} from "@/components/ui/table/utils/useHandleSort";
+import {TableHeader} from "@/components/ui/table/tableHeader/TableHeader";
 
 const meta = {
     argTypes: {},
@@ -39,17 +41,24 @@ export const TableDefault: Story = {
             },
         ]
 
+
+
+
+        const sortHandler = useHandleSort(options)
+        const { setSort, sort, sortedData } = sortHandler
+
         return (
             <Table {...args}>
-                <TableHead>
-                    <TableRow>
-                        <TableHeadCell>Name</TableHeadCell>
-                        <TableHeadCell>Cards</TableHeadCell>
-                        <TableHeadCell>Last Updated</TableHeadCell>
-                        <TableHeadCell>Created By</TableHeadCell>
-                        <TableHeadCell></TableHeadCell>
-                    </TableRow>
-                </TableHead>
+                <TableHeader columns={columns} onClick={sortHandler} onSort={setSort} sort={sort} />
+                {/*<TableHead>*/}
+                {/*    <TableRow>*/}
+                {/*        <TableHeadCell>Name</TableHeadCell>*/}
+                {/*        <TableHeadCell>Cards</TableHeadCell>*/}
+                {/*        <TableHeadCell>Last Updated</TableHeadCell>*/}
+                {/*        <TableHeadCell>Created By</TableHeadCell>*/}
+                {/*        <TableHeadCell></TableHeadCell>*/}
+                {/*    </TableRow>*/}
+                {/*</TableHead>*/}
                 <TableBody>
                     {options.map(t => {
                         return (
@@ -79,3 +88,13 @@ export const TableDefault: Story = {
     },
 }
 
+export type Sort = {
+    direction: 'asc' | 'desc'
+    key: string
+} | null
+
+export type Column = {
+    key: string
+    sortable?: boolean
+    title: string
+}
