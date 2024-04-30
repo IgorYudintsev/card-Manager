@@ -9,6 +9,7 @@ import {Card} from "@/components/ui/card";
 import {Edit, Logout} from "@/assets";
 import {ControlledTextfield} from "@/components/ui/controlled/controlled-textfield/ControlledTextfield";
 import {Button} from "@/components/ui/button";
+import {ZodError} from 'zod'
 
 type ProfileProps = {
     email: string
@@ -36,12 +37,10 @@ export const Profile = ({
         onEditOffHandler()
     }
 
-    const {
-        formState: { errors: fileErrors },
-        handleSubmit: handleSubmitFileForm,
-    } = useForm<profileFileFormValues>({
+    const {handleSubmit: handleSubmitFileForm} = useForm<profileFileFormValues>({
         resolver: zodResolver(fileSchema),
     })
+
 
     const onSubmitFileForm = (data: profileFileFormValues) => {
         console.log(data)
@@ -73,11 +72,18 @@ export const Profile = ({
             setPhoto(imageUrl)
             console.log('Selected File:', selectedFile)
         }
-
-        const fileError = String(fileErrors.image?.message || null)
-
-        setFileError(fileError)
+        try {
+            fileSchema.parse(selectedFile)
+            setFileError(null)
+        } catch (error: unknown) {
+            if (error instanceof ZodError) {
+                setFileError(error.errors?.[0]?.message || 'File validation error')
+            } else {
+                console.error('Unexpected error type:', error)
+            }
+        }
     }
+
     return (
         <Card>
             <Typography className={s.profileLabel} variant={'h1'}>
@@ -85,21 +91,24 @@ export const Profile = ({
             </Typography>
             <div className={s.profileBlock}>
                 <div className={s.photoWrapper}>
-                    {fileError && <p className={s.errorText}>{fileError}</p>}
                     <form className={s.form} onSubmit={handleSubmitFileForm(onSubmitFileForm)}>
                         <input
                             id={'imgupload'}
                             name={'avatar'}
                             onChange={handleFileChange}
                             ref={fileInputRef}
-                            style={{ display: 'none' }}
+                            style={{display: 'none'}}
                             type={'file'}
                         />
 
-                        <img alt={'user image'} className={s.profileImg} src={photo} />
+                        {fileError ? (
+                            <p className={s.errorText}>{fileError}</p>
+                        ) : (
+                            <img alt={'user image'} className={s.profileImg} src={photo}/>
+                        )}
 
                         <button className={s.profileEditImgBtn} onClick={openFileInput}>
-                            <Edit />
+                            <Edit/>
                         </button>
                     </form>
                 </div>
