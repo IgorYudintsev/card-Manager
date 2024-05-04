@@ -58,7 +58,7 @@ export const TableStory = () => {
                             <TableDataCell>
                 <span className={s.tableDataContent}>
                   {t.image && (
-                      <img alt={'image'} src={t.image} style={{ height: '50px', width: '150px' }} />
+                      <img alt={'image'} src={t.image}   className={s.tableImage} />
                   )}
                     {t.title}
                 </span>

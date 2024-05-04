@@ -6,20 +6,22 @@ import s from './Profile.module.scss'
 import defaultImage from '../../../assets/image/defaultAvatar.png'
 import {Typography} from "@/components/ui/typography";
 import {Card} from "@/components/ui/card";
-import {Edit, Logout} from "@/assets";
+import {Edit} from "@/assets";
 import {ControlledTextfield} from "@/components/ui/controlled/controlled-textfield/ControlledTextfield";
 import {Button} from "@/components/ui/button";
 import {ZodError} from 'zod'
 
-type ProfileProps = {
-    email: string
-    nickname: string
+export type ProfileProps = {
+    edit?: boolean
+    email?: string
+    nickname?: string
 }
 export const Profile = ({
                             email = 'useremail@mail.com',
                             nickname = 'profile_nickname',
+                            edit=false
                         }: ProfileProps) => {
-    const [editMode, setEditMode] = useState<boolean>(false)
+    const [editMode, setEditMode] = useState<boolean>(edit)
     const [photo, setPhoto] = useState<string>(defaultImage)
     const [fileError, setFileError] = useState<null | string>(null)
 
@@ -138,8 +140,8 @@ export const Profile = ({
                             <Typography className={s.userEmail} variant={'body2'}>
                                 {email}
                             </Typography>
-                            <Button className={s.logoutBtn} variant={'secondary'}>
-                                <Logout className={s.logoutIcon}/>
+                            <Button className={s.logoutBtn} variant={'secondary'} icon>
+                                {/*<Logout className={s.logoutIcon}/>*/}
                                 Logout
                             </Button>
                         </div>

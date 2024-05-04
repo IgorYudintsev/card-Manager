@@ -74,7 +74,7 @@ export const TableStory: Story = {
                         <img
                             alt={'image'}
                             src={t.image}
-                            style={{ height: '30px', width: 'auto' }}
+                            className={s.tableImage}
                         />
                     )}
                       {t.title}
