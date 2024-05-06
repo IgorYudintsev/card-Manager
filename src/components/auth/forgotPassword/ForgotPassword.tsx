@@ -15,7 +15,7 @@ export const ForgotPassword = () => {
         control,
         formState: {errors},
     } = useForm<FormValues>({
-        defaultValues: { rememberMe: false, email: '', password: '' },
+        defaultValues: {rememberMe: false, email: '', password: ''},
         resolver: zodResolver(forgotPasswordSchema),
     })
 
@@ -32,8 +32,9 @@ export const ForgotPassword = () => {
                     className={s.emailField}
                     control={control}
                     errorMessage={errors.email?.message}
-                    label={'email'}
+                    label={'Email'}
                     name={'email'}
+                    placeholder={'Email'}
                 />
                 <Typography as={'p'} className={s.enterEmail} variant={'body2'}>
                     Enter your email address and we will send you further instructions
